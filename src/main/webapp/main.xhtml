@@ -4,8 +4,102 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <f:view>
-      <h:outputLabel value="Hello, world"/>
-   </f:view>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>WEBLAB#3</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputScript library="js" name="canvasXOY.js" target="body"></h:outputScript>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+</h:head>
+<f:view>
+
+
+</f:view>
+<h:body>
+
+    <div class="bordered canvasContainer">
+        <canvas id="graph" width="350" height="350">
+            <span>
+              <h:graphicImage src="img/jojo.jpeg" alt="Task grpah" width="350" height="350"/>
+            </span>
+        </canvas>
+
+    </div>
+    <div class="card" style="test-alige: center;">
+        <h:form>
+            <p:messages id="msgs"/>
+
+            <h:panelGrid columns="3" cellpadding="10" styleClass="mb-3">
+                <p:outputLabel for="x" value="x:"/>
+                <p:inputText id="x" value="#{point.x}" required="true" label="x">
+                    <f:validateLength minimum="1" maximum="10"/>
+                </p:inputText>
+                <p:message for="x" display="x"/>
+
+
+                <p:outputLabel for="y" value="y:"/>
+                <p:inputText id="y" value="#{point.y}" required="true" label="y">
+                    <f:validateLength minimum="1" maximum="10"/>
+                    <f:validateDoubleRange minimum="-5" maximum="3"/>
+                    <f:validateRequired/>
+                    <f:ajax event="keyup" render="y-warning" execute="y"/> </p:inputText>
+                <p:message for="y" display="y"/>
+
+                <p:outputLabel for="r" value="r:"/>
+                <p:inputText id="r" value="#{point.r}" label="r" required="true">
+                    <f:validateLength minimum="1" maximum="10"/>
+                </p:inputText>
+                <p:message for="r" id="msgLastname" display="icon"/>
+
+            </h:panelGrid>
+
+            <p:commandButton value="Save" update="@form"  action="#{point.submit()}" >
+                <f:ajax execute="@form" render="@form result_table" onevent="afterattempt()"/>
+            </p:commandButton>
+        </h:form>
+    </div>
+    <div id="results" class="panel">
+            <h1>Results</h1>
+            <p:dataTable
+                    id="results-table"
+                    value="#{attemptsManager.attempts}"
+                    var="a"
+                    paginator="true"
+                    paginatorPosition="bottom"
+                    rows="10"
+                    tableStyle="table-layout: auto"
+            >
+                <p:column headerText="Attempt #">
+                    <h:outputText value="#{a.id}"/>
+                </p:column>
+                <p:column headerText="X">
+                    <h:outputText value="#{a.point.x}"/>
+                </p:column>
+                <p:column headerText="Y">
+                    <h:outputText value="#{a.point.y}"/>
+                </p:column>
+                <p:column headerText="R">
+                    <h:outputText value="#{a.point.r}"/>
+                </p:column>
+                <p:column headerText="Result">
+                    <span class="#{(a.success ? 'theme' : 'warning')}"><h:outputText value="#{(a.success ? 'HIT' : 'MISS')}"/></span>
+                </p:column>
+                <p:column headerText="Attempt time">
+                    <span class="timestamp"><h:outputText value="#{a.attemptTime}"/></span>
+                </p:column>
+                <p:column headerText="Processing time">
+                    <h:outputText value="#{a.processTime} ms"/>
+                </p:column>
+            </p:dataTable>
+        </div>
+
+    <div class="panel" style="text-align: center;">
+        <h:form styleclass="row">
+            <h:commandButton styleclass="button row-fill" value="start" action="index"/>
+        </h:form>
+    </div>
+
+</h:body>
 </html>
+

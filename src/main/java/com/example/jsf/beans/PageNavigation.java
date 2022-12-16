@@ -1,4 +1,4 @@
-package com.example.jsf;
+package com.example.jsf.beans;
 
 import jakarta.inject.Named;
 import jakarta.inject.Singleton;

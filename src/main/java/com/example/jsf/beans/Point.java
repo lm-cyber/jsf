@@ -1,13 +1,18 @@
-package com.example.jsf;
+package com.example.jsf.beans;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @RequestScoped
 @Named
+@Data
+@NoArgsConstructor
 public class Point implements Serializable {
     @Inject
     transient private AttemptsManager am;
@@ -17,7 +22,20 @@ public class Point implements Serializable {
     private double y;
     private double r;
 
-    public Point() {}
+    private boolean[] xArray;
+
+
+    @PostConstruct
+    public void init(){
+        this.xArray = new boolean[9];
+    }
+    public void setValue0(boolean xBool){
+        xArray[0] =xBool;
+    }
+    public boolean getValue0(){
+        return xArray[0];
+    }
+
 
     public Point(double x, double y, double r) {
         this.x = x;
@@ -25,37 +43,11 @@ public class Point implements Serializable {
         this.r = r;
     }
 
-    public double getX() {
-        return x;
-    }
 
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public void setY(double y) {
-        this.y = y;
-    }
-
-    public double getR() {
-        return r;
-    }
-
-    public void setR(double r) {
-        this.r = r;
-    }
 
     public void submit() {
         final long start = System.nanoTime();
         final boolean res = areaCheker.cheakPoint(this);
-        System.out.println(x);
-        System.out.println(y);
-        System.out.println(r);
-        System.out.println(res);
 
         PointAttempt attempt = new PointAttempt();
         attempt.setPoint(this);

@@ -1,29 +1,28 @@
-package com.example.jsf;
+package com.example.jsf.beans;
 
 import com.example.jsf.area_zone.Area;
-import jakarta.enterprise.context.SessionScoped;
+import com.example.jsf.area_zone.CircleArea;
+import com.example.jsf.area_zone.RectangleArea;
+import com.example.jsf.area_zone.TriangleArea;
+import jakarta.inject.Named;
 import jakarta.inject.Singleton;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-@SessionScoped
-@Data
-@NoArgsConstructor
 @Singleton
+@Named
 public class AreaCheker implements Serializable {
 
-    private Area area;
+    private final static Area area = new RectangleArea(new TriangleArea(new CircleArea(null)));
 
-    public void addArea(Area area){
-        if(this.area==null){
-            setArea(area);
-            return;
-        }
-        area.addArea(area);
-
-    }
+//    public void addArea(Area area){
+//        if(this.area==null){
+//            setArea(area);
+//            return;
+//        }
+//        area.addArea(area);
+//
+//    }
     public boolean cheakPoint(Point point){
         return area.cheakAreaDecorate(point);
     }

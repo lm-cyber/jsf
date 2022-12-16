@@ -44,12 +44,12 @@ function runGrapher() {
 
         // 2nd quadrant sector
         ctx.beginPath();
-        ctx.arc(width / 2, height / 2, width / 6, 0, Math.PI/2, false);
+        ctx.arc(width / 2, height / 2, width / 6, Math.PI/2, Math.PI, false);
         ctx.lineTo(width / 2, height / 2);
         ctx.fill();
 
         // 4th quadrant rectangl
-        ctx.fillRect(width / 6,  height / 6, width / 3 , height / 3);
+        ctx.fillRect(width / 2,  height / 2, width / 6*2 , height / 6);
 
 
         ctx.fillStyle = "#000";

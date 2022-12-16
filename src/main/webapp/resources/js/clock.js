@@ -4,5 +4,7 @@ function runClock() {
     clock.innerHTML = new Date().toLocaleString();
 }
 
+
+
 runClock();
-setInterval(runClock, 5000);
+setInterval(runClock, 6000);

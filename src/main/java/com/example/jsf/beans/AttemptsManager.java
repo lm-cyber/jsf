@@ -1,4 +1,4 @@
-package com.example.jsf;
+package com.example.jsf.beans;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.SessionScoped;
