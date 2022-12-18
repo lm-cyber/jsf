@@ -2,13 +2,14 @@ const canvas = document.getElementById("graph");
 let w = canvas.width, h = canvas.height;
 
 const hatchWidth = 20 / 2;
-const baseHatchGap=30;
+const baseHatchGap = 30;
 var hatchGap = 20;
 var rValue = 1;
 
 const width = canvas.width;
 const height = canvas.height;
 const ctx = canvas.getContext("2d");
+
 function runGrapher() {
 
     const FIGURE_COLOR = "#567efb99";
@@ -44,12 +45,12 @@ function runGrapher() {
 
         // 2nd quadrant sector
         ctx.beginPath();
-        ctx.arc(width / 2, height / 2, width / 6, Math.PI/2, Math.PI, false);
+        ctx.arc(width / 2, height / 2, width / 6, Math.PI / 2, Math.PI, false);
         ctx.lineTo(width / 2, height / 2);
         ctx.fill();
 
         // 4th quadrant rectangl
-        ctx.fillRect(width / 2,  height / 2, width / 6*2 , height / 6);
+        ctx.fillRect(width / 2, height / 2, width / 6 * 2, height / 6);
 
 
         ctx.fillStyle = "#000";
@@ -73,18 +74,16 @@ function runGrapher() {
         }
 
 
-
-
-        POINTS.forEach((point, index) => {
-            const r = getR()?getR():point.r;
+        points.forEach((point) => {
+            console.log("point");
+            const r = getR() ? getR() : point.r;
             const x = ((point.x / r) * width) / 3 + width / 2;
             const y = ((-point.y / r) * height) / 3 + height / 2;
 
 
-            ctx.fillStyle = "#FF0000";
-
+            ctx.fillStyle = (point.success ? '#2b6af3' : '#dc3545');
             ctx.beginPath();
-            ctx.arc(x, y, 5, 0, Math.PI * 2,true);
+            ctx.arc(x, y, 5, 0, Math.PI * 2, true);
             ctx.fill();
         });
     }
@@ -94,16 +93,23 @@ function runGrapher() {
         drawGraph,
     };
 }
+
 function getR() {
 
-    const docR = document.getElementById("_r");
-    const r = docR?docR.value:0;
+    const docR = document.getElementById("r");
+    const r = docR ? docR.value : 0;
+    if (r > 3) {
+        return 3;
+    }
+    if (r < 1) {
+        return 1;
+    }
     return r;
 }
 
 runGrapher().drawGraph();
+
 function getMousePosition(e) {
-    var rect = canvas.getBoundingClientRect();
 
     var mouseX = e.offsetX * canvas.width / canvas.clientWidth | 0;
     var mouseY = e.offsetY * canvas.height / canvas.clientHeight | 0;
@@ -111,33 +117,20 @@ function getMousePosition(e) {
 }
 
 
-
 canvas.addEventListener('click', (event) => {
-    if (!isNaN(getR())&&validationFloat(getR())) {
-        const x = getMousePosition(event).x;
-        const y = getMousePosition(event).y;
-        const xCenter = Math.round((x - w/2) / (hatchGap * (2/rValue))*1000)/1000,
-            yCenter = Math.round((h/2 - y) / (hatchGap * (2/rValue))*1000)/1000;
-        console.log(xCenter, yCenter);
+    const x = getMousePosition(event).x;
+    const y = getMousePosition(event).y;
+    const xCenter = Math.round((x - w / 2) / (hatchGap * (2 / rValue)) * 1000) / 1000,
+        yCenter = Math.round((h / 2 - y) / (hatchGap * (2 / rValue)) * 1000) / 1000;
+    console.log(xCenter, yCenter);
 
-        if(xCenter>2||xCenter<-2) {
-            alert("x coordinate out of range(-2,2)");
-            return;
-        }
-        if(yCenter>3||yCenter<-5) {
-            alert("y coordinate out of range(-5,3)");
-            return;
-        }
+    const url = '/jsf-1.0-SNAPSHOT/sendCanvas';
+
+    const params = { xpoint: x, ypoint: y, rpoint : getR()};
 
 
-        let xP = document.getElementById("_x");
-        xP.options[xP.selectedIndex].value = xCenter.toString();
-        document.getElementById("_y").value = yCenter.toString();
+    fetch(url,params);
 
-        document.forms["input-form"].submit();
 
-    } else {
-        alert("Error: R field is incorrect!")
-    }
 });
 

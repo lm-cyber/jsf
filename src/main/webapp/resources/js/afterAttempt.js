@@ -1,24 +1,24 @@
-function afterattempt(data) {
+function afterAttempt(data) {
     if (data.status === 'success') {
-        fetch('/web-faces/attempts')
+        fetch('/jsf-1.0-SNAPSHOT/attempts')
             .then((data) => data.json())
             .then((data) => {
                 points = data;
-                rendergraph();
+                runGrapher().drawGraph();
             });
     }
 }
 
-function rendertimestampsontable() {
-    const els = document.getelementsbyclassname('timestamp');
+function renderTimestampsOnTable() {
+    const els = document.getElementsByClassName('timestamp');
 
     for (let i = 0; i < els.length; i++) {
         const el = els.item(i);
-        const timestamp = parseint(el.innerhtml);
-        if (!isnan(timestamp) && el.innerhtml.match('^[0-9]+$')) {
-            el.innerhtml = new date(timestamp).tolocalestring();
+        const timestamp = parseInt(el.innerHTML);
+        if (!isNaN(timestamp) && el.innerHTML.match('^[0-9]+$')) {
+            el.innerHTML = new Date(timestamp).toLocaleString();
         }
     }
 }
 
-setinterval(rendertimestampsontable, 10);
+setInterval(renderTimestampsOnTable, 1);

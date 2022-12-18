@@ -11,7 +11,7 @@ import com.example.jsf.beans.AttemptsManager;
 
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/data")
+@WebServlet(urlPatterns = "/attempts")
 public class DataServlet extends HttpServlet {
     @Inject
     private AttemptsManager am;
@@ -19,6 +19,7 @@ public class DataServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Gson g = new Gson();
+        System.out.println(am.getAttempts().toString());
         resp.getWriter().println(g.toJson(am.getAttempts()));
     }
 }

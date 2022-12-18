@@ -22,18 +22,102 @@ public class Point implements Serializable {
     private double y;
     private double r;
 
-    private boolean[] xArray;
+    public void setValueM2(boolean xBool) {
+        x = xBool ? -2D : x;
+    }
 
+    public void setValueM15(boolean xBool) {
+        x = xBool ? -1.5D : x;
+    }
+
+    public void setValueM1(boolean xBool) {
+        x = xBool ? -1D : x;
+    }
+
+    public void setValueM05(boolean xBool) {
+        x = xBool ? -0.5D : x;
+    }
+
+    public void setValue0(boolean xBool) {
+        x = xBool ? 0D : x;
+    }
+
+    public void setValue05(boolean xBool) {
+        x = xBool ? 0.5D : x;
+    }
+
+    public void setValue1(boolean xBool) {
+        x = xBool ? 1D : x;
+    }
+
+    public void setValue15(boolean xBool) {
+        x = xBool ? 1.5D : x;
+    }
+
+    public void setValue2(boolean xBool) {
+        x = xBool ? 2D : x;
+    }
+
+    public boolean getValueM2() {
+        return x == -2D;
+    }
+
+    public boolean getValueM15() {
+        return x == -1.5D;
+    }
+
+    public boolean getValueM1() {
+        return x == -1D;
+    }
+
+    public boolean getValueM05() {
+        return x == -0.5D;
+    }
+
+
+    public boolean getValue0() {
+        return x == 0D;
+    }
+
+    public boolean getValue05() {
+        return x == 0.5D;
+    }
+
+    public boolean getValue1() {
+        return x == 1D;
+    }
+
+    public boolean getValue15() {
+        return x == 1.5D;
+    }
+
+    public boolean getValue2() {
+        return x == 2D;
+    }
 
     @PostConstruct
-    public void init(){
-        this.xArray = new boolean[9];
+    public void init() {
+        this.r = 1D;
     }
-    public void setValue0(boolean xBool){
-        xArray[0] =xBool;
+
+    public void r1() {
+        this.r = 1D;
     }
-    public boolean getValue0(){
-        return xArray[0];
+
+    public void r15() {
+        this.r = 1.5D;
+    }
+
+    public void r2() {
+        this.r = 2D;
+    }
+
+    public void r25() {
+        this.r = 2.5D;
+    }
+
+    public void r3() {
+        this.r = 3D;
     }
 
 
@@ -42,7 +126,6 @@ public class Point implements Serializable {
         this.y = y;
         this.r = r;
     }
-
 
 
     public void submit() {
