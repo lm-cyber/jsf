@@ -12,6 +12,6 @@ public class RectangleArea extends Area {
 
     @Override
     protected boolean cheakArea(Point point) {
-        return (point.getX() > 0 && point.getX() < point.getR() && point.getY() < 0 && point.getY() > -point.getR());
+        return ((point.getX() > 0 && point.getX() < point.getR()) && (point.getY() < 0 && (point.getY() > -point.getR()/2)));
     }
 }

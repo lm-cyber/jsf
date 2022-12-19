@@ -15,7 +15,12 @@
     <h:outputScript library="js" name="afterAttempt.js" target="body"></h:outputScript>
     <h:outputScript library="js" name="canvasXOY.js" target="body"></h:outputScript>
     <script>
-
+        fetch('/jsf-1.0-SNAPSHOT/attempts')
+            .then((data) => data.json())
+            .then((data) => {
+                points = data;
+                runGrapher().drawGraph();
+            });
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 </h:head>
@@ -30,6 +35,7 @@
 
     <div class="bordered canvasContainer">
         <canvas id="graph" width="350" height="350">
+            <f:ajax
             <span>
               <h:graphicImage src="img/jojo.jpeg" alt="Task grpah" width="350" height="350"/>
             </span>
@@ -68,7 +74,7 @@
 
                 <p:outputLabel for="r" value="r:"/>
                 <p:inputText id="r" value="#{point.r}" label="r" required="true">
-                    <f:ajax event="change" execute="r" render="r-warning" onevent="renderGraph"/>
+                    <f:ajax event="change" execute="r" render="r-warning" onevent="runGrapher().drawGraph()"/>
                     <f:validateLength minimum="1" maximum="10"/>
                 </p:inputText>
                 <p:message for="r" id="msgLastname" display="icon"/>

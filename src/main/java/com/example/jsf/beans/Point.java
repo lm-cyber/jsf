@@ -4,6 +4,7 @@ import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.io.Serializable;
 @Named
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Point implements Serializable {
     @Inject
     transient private AttemptsManager am;
@@ -126,6 +128,7 @@ public class Point implements Serializable {
         this.y = y;
         this.r = r;
     }
+
 
 
     public void submit() {

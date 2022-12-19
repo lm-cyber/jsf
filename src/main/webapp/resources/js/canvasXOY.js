@@ -1,10 +1,7 @@
 const canvas = document.getElementById("graph");
-let w = canvas.width, h = canvas.height;
+const FLOAT_REGEX = /^-?\d+(?:\.\d+)?$/;
 
-const hatchWidth = 20 / 2;
-const baseHatchGap = 30;
-var hatchGap = 20;
-var rValue = 1;
+
 
 const width = canvas.width;
 const height = canvas.height;
@@ -74,16 +71,14 @@ function runGrapher() {
         }
 
 
-        points.forEach((point) => {
-            console.log("point");
-            const r = getR() ? getR() : point.r;
-            const x = ((point.x / r) * width) / 3 + width / 2;
-            const y = ((-point.y / r) * height) / 3 + height / 2;
+        points.forEach((v) => {
+            const r = getR();
+            const x = v.x / r * width / 3 + width / 2;
+            const y = -v.y / r * height / 3 + height / 2;
 
-
-            ctx.fillStyle = (point.success ? '#2b6af3' : '#dc3545');
+            ctx.fillStyle = (v.success ? '#2b6af3' : '#dc3545');
             ctx.beginPath();
-            ctx.arc(x, y, 5, 0, Math.PI * 2, true);
+            ctx.arc(x, y, 5, 0, Math.PI * 2);
             ctx.fill();
         });
     }
@@ -96,16 +91,38 @@ function runGrapher() {
 
 function getR() {
 
-    const docR = document.getElementById("r");
-    const r = docR ? docR.value : 0;
+    const docR = document.getElementById("j_idt12:r");
+    const r = docR ? parseFloat(docR.value) : 1;
     if (r > 3) {
+        docR.value = '3';
         return 3;
     }
     if (r < 1) {
+        docR.value = '1';
         return 1;
     }
     return r;
 }
+
+const input =  document.getElementById("j_idt12:r");
+
+function checkR(e) {
+    const  r = e.target.value;
+    if(FLOAT_REGEX.test(r)){
+        e.target.value = '1';
+        return
+    }
+    if(r>3){
+        e.target.value='3';
+    }
+    if(r<1){
+        e.target.value = '1';
+    }
+
+
+
+}
+input.addEventListener('input', checkR);
 
 runGrapher().drawGraph();
 
@@ -117,19 +134,22 @@ function getMousePosition(e) {
 }
 
 
-canvas.addEventListener('click', (event) => {
-    const x = getMousePosition(event).x;
-    const y = getMousePosition(event).y;
-    const xCenter = Math.round((x - w / 2) / (hatchGap * (2 / rValue)) * 1000) / 1000,
-        yCenter = Math.round((h / 2 - y) / (hatchGap * (2 / rValue)) * 1000) / 1000;
-    console.log(xCenter, yCenter);
+canvas.addEventListener('click', (ev) => {
 
-    const url = '/jsf-1.0-SNAPSHOT/sendCanvas';
+    const r = getR();
+    // const x = Math.round((ev.offsetX / canvas.width - 0.5) * 3 * r * 100) / 100;
+    // const y = Math.round((ev.offsetY / canvas.height - 0.5) * -3 * r * 100) / 100;
 
-    const params = { xpoint: x, ypoint: y, rpoint : getR()};
+    let x = (ev.offsetX / width) * (3 * r) - (3 / 2) * r;
+    let y = ((3 * r / 2 - (ev.offsetY / height * (3 * r))) * 10) / 10;
 
-
-    fetch(url,params);
+    fetch('/jsf-1.0-SNAPSHOT/sendCanvas?' + new URLSearchParams({xpoint: x, ypoint: y, rpoint: r}))
+        .then((data) => data.json())
+        .then((data) => {
+            points = data;
+            runGrapher().drawGraph();
+        });
+    ;
 
 
 });

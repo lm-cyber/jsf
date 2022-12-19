@@ -11,6 +11,6 @@ public class CircleArea extends Area {
     }
     @Override
     protected boolean cheakArea(Point point) {
-        return (point.getX() < 0 && point.getY() < 0) && ((Math.pow(point.getX(), 2) + Math.pow(point.getX(), 2)) < (Math.pow(point.getR() / 2, 2)));
+        return (point.getX() < 0 && point.getY() < 0) && ((Math.pow(point.getX(), 2) + Math.pow(point.getY(), 2)) < (Math.pow(point.getR() / 2, 2)));
     }
 }

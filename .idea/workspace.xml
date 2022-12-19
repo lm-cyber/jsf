@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a680d46-e515-4764-add4-3de53adbdc9f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsf/SendCanvasDataServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsf/DataServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsf/DataServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsf/beans/PageNavigation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsf/SendCanvasDataServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsf/SendCanvasDataServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsf/area_zone/CircleArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsf/area_zone/CircleArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsf/area_zone/RectangleArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsf/area_zone/RectangleArea.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsf/beans/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsf/beans/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/main.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/main.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/afterAttempt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/afterAttempt.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/canvasXOY.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/canvasXOY.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/validation.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +113,9 @@
       <workItem from="1671056944969" duration="3764000" />
       <workItem from="1671188399132" duration="11079000" />
       <workItem from="1671279562724" duration="7709000" />
-      <workItem from="1671326706810" duration="6768000" />
+      <workItem from="1671326706810" duration="7104000" />
+      <workItem from="1671366242562" duration="1378000" />
+      <workItem from="1671465261788" duration="4954000" />
     </task>
     <servers />
   </component>
