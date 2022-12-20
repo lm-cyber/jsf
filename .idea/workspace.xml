@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a680d46-e515-4764-add4-3de53adbdc9f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/main.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/main.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/canvasXOY.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/canvasXOY.js" afterDir="false" />
-    </list>
+    <list default="true" id="3a680d46-e515-4764-add4-3de53adbdc9f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,7 +107,7 @@
       <workItem from="1671326706810" duration="7104000" />
       <workItem from="1671366242562" duration="1378000" />
       <workItem from="1671465261788" duration="5078000" />
-      <workItem from="1671543248552" duration="3604000" />
+      <workItem from="1671543248552" duration="3908000" />
     </task>
     <servers />
   </component>

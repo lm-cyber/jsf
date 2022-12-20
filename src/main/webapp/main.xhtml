@@ -98,7 +98,7 @@
 
             </h:panelGrid>
 
-            <h:commandButton id="submit-button" styleClass="button row-fill" value="Submit" action="#{point.submit()}">
+            <h:commandButton class="card" id="submit-button" styleClass="button row-fill" value="Submit" action="#{point.submit()}">
                 <f:ajax execute="@form" render="@form results-table" onevent="afterAttempt"/>
             </h:commandButton>
         </h:form>
