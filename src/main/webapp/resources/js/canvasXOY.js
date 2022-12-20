@@ -91,7 +91,7 @@ function runGrapher() {
 
 function getR() {
 
-    const docR = document.getElementById("j_idt12:r");
+    const docR = document.getElementById("j_idt19:r");
     const r = docR ? parseFloat(docR.value) : 1;
     if (r > 3) {
         docR.value = '3';
@@ -104,25 +104,25 @@ function getR() {
     return r;
 }
 
-const input =  document.getElementById("j_idt12:r");
+const input =  document.getElementById("j_idt19:r");
 
 function checkR(e) {
     const  r = e.target.value;
-    if(FLOAT_REGEX.test(r)){
+    if(!FLOAT_REGEX.test(r)){
         e.target.value = '1';
         return
     }
-    if(r>3){
+    if(r>3.){
         e.target.value='3';
     }
-    if(r<1){
+    if(r<1.){
         e.target.value = '1';
     }
 
 
 
 }
-input.addEventListener('input', checkR);
+input.addEventListener('change', checkR);
 
 runGrapher().drawGraph();
 
@@ -150,6 +150,7 @@ canvas.addEventListener('click', (ev) => {
             runGrapher().drawGraph();
         });
     ;
+    document.getElementById('submit_ajax_table').click();
 
 
 });

@@ -27,17 +27,29 @@
 
 <h:body>
     <header>
-        <h1>Nasibullin Alan, P32312</h1>
-        <h2>var. 66643</h2>
+        <p:card style="width: 25rem;text-align: center; margin-bottom: 2em">
+            <h5 style="text-align: center;">Lab 3</h5>
+            <f:facet name="title" style="text-align: center;">Nasibullin Alan, P32312</f:facet>
+
+            <p style="text-align: center;">var. 66643</p>
+            <div class="card">
+                <p:linkButton outcome="index" value="start" style="margin-right:20px;">
+                </p:linkButton>
+            </div>
+
+        </p:card>
 
     </header>
 
 
     <div class="bordered canvasContainer">
         <canvas id="graph" width="350" height="350">
-            <f:ajax
             <span>
               <h:graphicImage src="img/jojo.jpeg" alt="Task grpah" width="350" height="350"/>
+                <h:commandButton id="submit_ajax_table">
+                <f:ajax render="results-table"/>
+
+                </h:commandButton>
             </span>
         </canvas>
 
@@ -127,11 +139,6 @@
         </p:dataTable>
     </div>
 
-    <div class="panel" style="text-align: center;">
-        <h:form styleclass="row">
-            <h:commandButton styleclass="button row-fill" value="start" action="index"/>
-        </h:form>
-    </div>
 
 </h:body>
 </html>

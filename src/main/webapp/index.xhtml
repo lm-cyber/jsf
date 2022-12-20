@@ -8,26 +8,50 @@
       xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>WEBLAB#3</title>
+    <style>
+        p {
+            line-height: 100%;
+            margin: 0;
+            text-align: center;
+        }
+
+        .ui-analog-clock {
+            text-align: center;
+            width: 200px;
+        }
+    </style>
     <h:outputStylesheet library="css" name="style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
     <h:outputScript library="js" name="clock.js" target="body"/>
 </h:head>
 <h:body>
-     <header>
-        <h1>Nasibullin Alan, P32312</h1>
-        <h2>var. 66643</h2>
+    <header style="text-align: center;">
+        <div style="text-align: center;">
+            <div class="card" style="text-align: center;">
+
+                <p:card style="width: 25rem;text-align: center; margin-bottom: 2em">
+                    <h5 style="text-align: center;">Lab 3</h5>
+                    <f:facet name="title" style="text-align: center;">Nasibullin Alan, P32312</f:facet>
+
+                    <p style="text-align: center;">var. 66643</p>
+                    <div class="panel" style="text-align: center;">
+                        <h3 id="clock" class="row">clock</h3>
+                        <p:clock displayMode="analog" style="position: center;"/>
+
+                        <div class="card">
+                            <p:linkButton outcome="main" value="main" style="margin-right:20px;">
+                            </p:linkButton>
+                        </div>
+                    </div>
+
+                </p:card>
+
+            </div>
+        </div>
+
 
     </header>
 
-
-
-
-    <div class="panel" style="text-align: center;">
-        <h3 id="clock" class="row">clock</h3>
-        <h:form styleclass="row">
-            <h:commandButton styleclass="button row-fill" value="start" action="main"/>
-        </h:form>
-    </div>
 
 </h:body>
 </html>
