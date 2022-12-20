@@ -47,7 +47,7 @@
             <span>
               <h:graphicImage src="img/jojo.jpeg" alt="Task grpah" width="350" height="350"/>
                 <h:commandButton id="submit_ajax_table">
-                <f:ajax render="results-table"/>
+                    <f:ajax render="results-table"/>
 
                 </h:commandButton>
             </span>
@@ -98,9 +98,9 @@
 
             </h:panelGrid>
 
-            <h:commandButton class="card" id="submit-button" styleClass="button row-fill" value="Submit" action="#{point.submit()}">
+            <p:commandButton id="submit-button" styleClass="button row-fill" value="Submit" action="#{point.submit()}">
                 <f:ajax execute="@form" render="@form results-table" onevent="afterAttempt"/>
-            </h:commandButton>
+            </p:commandButton>
         </h:form>
     </div>
     <div id="results" class="panel">
