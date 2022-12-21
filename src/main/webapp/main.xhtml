@@ -11,6 +11,13 @@
     <script>
         let points = [];
     </script>
+    <style>
+
+        th {
+            background-color: mediumblue ;
+            color: white;
+        }
+    </style>
     <h:outputStylesheet library="css" name="style.css"/>
     <h:outputScript library="js" name="afterAttempt.js" target="body"></h:outputScript>
     <h:outputScript library="js" name="canvasXOY.js" target="body"></h:outputScript>
@@ -87,11 +94,11 @@
                     <f:validateLength minimum="1" maximum="10"/>
                 </p:inputText>
                 <p:message for="r" id="msgLastname" display="icon"/>
-                <!--                <p:commandLink  class="mr-4" action="#{point.r1()}" value="1"/>-->
-                <!--                <p:commandLink   class="mr-4" action="#{point.r15()}" value="1.5"/>-->
-                <!--                <p:commandLink  class="mr-4" action="#{point.r2()}" value="2"/>-->
-                <!--                <p:commandLink   class="mr-4" action="#{point.r25()}" value="2.5"/>-->
-                <!--                <p:commandLink   class="mr-4" action="#{point.r3()}" value="3"/>-->
+<!--                                <p:commandLink  class="mr-4" action="#{point.r1()}" value="1" />-->
+<!--                                <p:commandLink   class="mr-4" action="#{point.r15()}" value="1.5"/>-->
+<!--                                <p:commandLink  class="mr-4" action="#{point.r2()}" value="2"/>-->
+<!--                                <p:commandLink   class="mr-4" action="#{point.r25()}" value="2.5"/>-->
+<!--                                <p:commandLink   class="mr-4" action="#{point.r3()}" value="3"/>-->
 
             </h:panelGrid>
 

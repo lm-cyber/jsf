@@ -7,8 +7,8 @@
     <list default="true" id="3a680d46-e515-4764-add4-3de53adbdc9f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/main.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/main.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/afterAttempt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/afterAttempt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/canvasXOY.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/canvasXOY.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +113,7 @@
       <workItem from="1671366242562" duration="1378000" />
       <workItem from="1671465261788" duration="5078000" />
       <workItem from="1671543248552" duration="11624000" />
-      <workItem from="1671612987854" duration="660000" />
+      <workItem from="1671612987854" duration="2912000" />
     </task>
     <servers />
   </component>

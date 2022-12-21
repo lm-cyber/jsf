@@ -22,21 +22,27 @@ function tableCreate() {
 
 
     const thead = document.createElement('thead');
+    thead.style.border ='1px solid black';
 
     tbl.appendChild(thead);
     const orderArrayHeader = ["num", "X", "Y", "R","Attempt time","Processing time","Result"];
 
-    for (var i=0; i<orderArrayHeader.length; i++) {
-        thead.appendChild(document.createElement("th")).
-        appendChild(document.createTextNode(orderArrayHeader[i]));
+    for (var i = 0; i < orderArrayHeader.length; i++) {
+        th_cheld = document.createElement("th");
+        thead.appendChild(th_cheld);
+        th_cheld.style.border = '1px solid black';
+
+        th_cheld.appendChild(document.createTextNode(orderArrayHeader[i]));
     }
     const tblBody = document.createElement("tbody");
+    tblBody.style.border = '1px solid black';
     tbl.appendChild(tblBody);
     points.forEach((p) =>{
         var row = document.createElement('tr');
         arrOfP = Object.entries(p)
         arrOfP.forEach((d)=>{
             var cell = document.createElement('td');
+            cell.style.border ='1px solid black';
             var cellText;
             if(typeof(d[1]) ==="boolean" ){
                 cellText = document.createTextNode((d[1])?'HIT':'MISS');
