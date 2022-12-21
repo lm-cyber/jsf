@@ -2,7 +2,7 @@ const canvas = document.getElementById("graph");
 const FLOAT_REGEX = /^-?\d+(?:\.\d+)?$/;
 
 
-
+inputId ='j_idt19:r'
 const width = canvas.width;
 const height = canvas.height;
 const ctx = canvas.getContext("2d");
@@ -91,7 +91,7 @@ function runGrapher() {
 
 function getR() {
 
-    const docR = document.getElementById("j_idt19:r");
+    const docR = document.getElementById(inputId);
     const r = docR ? parseFloat(docR.value) : 1;
     if (r > 3) {
         docR.value = '3';
@@ -104,7 +104,7 @@ function getR() {
     return r;
 }
 
-const input =  document.getElementById("j_idt19:r");
+const input =  document.getElementById(inputId);
 
 function checkR(e) {
     const  r = e.target.value;
@@ -148,6 +148,7 @@ canvas.addEventListener('click', (ev) => {
         .then((data) => {
             points = data;
             runGrapher().drawGraph();
+            tableCreate();
         });
     ;
     document.getElementById('submit_ajax_table').click();

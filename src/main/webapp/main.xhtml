@@ -20,6 +20,7 @@
             .then((data) => {
                 points = data;
                 runGrapher().drawGraph();
+                tableCreate();
             });
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
@@ -46,10 +47,6 @@
         <canvas id="graph" width="350" height="350">
             <span>
               <h:graphicImage src="img/jojo.jpeg" alt="Task grpah" width="350" height="350"/>
-                <h:commandButton id="submit_ajax_table">
-                    <f:ajax render="results-table"/>
-
-                </h:commandButton>
             </span>
         </canvas>
 
@@ -99,46 +96,48 @@
             </h:panelGrid>
 
             <p:commandButton id="submit-button" styleClass="button row-fill" value="Submit" action="#{point.submit()}">
-                <f:ajax execute="@form" render="@form results-table" onevent="afterAttempt"/>
+                <f:ajax execute="@form" render="@form" onevent="afterAttempt"/>
             </p:commandButton>
         </h:form>
     </div>
-    <div id="results" class="panel">
-        <h1>Results</h1>
-        <p:dataTable
-                id="results-table"
-                value="#{attemptsManager.attempts}"
-                var="a"
-                paginator="true"
-                paginatorPosition="bottom"
-                rows="10"
-                tableStyle="table-layout: auto"
-        >
-            <p:column headerText="Attempt #">
-                <h:outputText value="#{a.id}"/>
-            </p:column>
-            <p:column headerText="X">
-                <h:outputText value="#{a.point.x}"/>
-            </p:column>
-            <p:column headerText="Y">
-                <h:outputText value="#{a.point.y}"/>
-            </p:column>
-            <p:column headerText="R">
-                <h:outputText value="#{a.point.r}"/>
-            </p:column>
-            <p:column headerText="Result">
-                <span class="#{(a.success ? 'theme' : 'warning')}"><h:outputText
-                        value="#{(a.success ? 'HIT' : 'MISS')}"/></span>
-            </p:column>
-            <p:column headerText="Attempt time">
-                <span class="timestamp"><h:outputText value="#{a.attemptTime}"/></span>
-            </p:column>
-            <p:column headerText="Processing time">
-                <h:outputText value="#{a.processTime} ms"/>
-            </p:column>
-        </p:dataTable>
-    </div>
+<!--    <div id="results" class="panel">-->
+<!--        <h1>Results</h1>-->
+<!--        <p:dataTable-->
+<!--                id="results-table"-->
+<!--                value="#{attemptsManager.attempts}"-->
+<!--                var="a"-->
+<!--                paginator="true"-->
+<!--                paginatorPosition="bottom"-->
+<!--                rows="10"-->
+<!--                tableStyle="table-layout: auto"-->
+<!--        >-->
+<!--            <p:column headerText="Attempt #">-->
+<!--                <h:outputText value="#{a.id}"/>-->
+<!--            </p:column>-->
+<!--            <p:column headerText="X">-->
+<!--                <h:outputText value="#{a.point.x}"/>-->
+<!--            </p:column>-->
+<!--            <p:column headerText="Y">-->
+<!--                <h:outputText value="#{a.point.y}"/>-->
+<!--            </p:column>-->
+<!--            <p:column headerText="R">-->
+<!--                <h:outputText value="#{a.point.r}"/>-->
+<!--            </p:column>-->
+<!--            <p:column headerText="Result">-->
+<!--                <span class="#{(a.success ? 'theme' : 'warning')}"><h:outputText-->
+<!--                        value="#{(a.success ? 'HIT' : 'MISS')}"/></span>-->
+<!--            </p:column>-->
+<!--            <p:column headerText="Attempt time">-->
+<!--                <span class="timestamp"><h:outputText value="#{a.attemptTime}"/></span>-->
+<!--            </p:column>-->
+<!--            <p:column headerText="Processing time">-->
+<!--                <h:outputText value="#{a.processTime} ms"/>-->
+<!--            </p:column>-->
+<!--        </p:dataTable>-->
+<!--    </div>-->
+    <div id="new_table">
 
+    </div>
 
 </h:body>
 </html>
