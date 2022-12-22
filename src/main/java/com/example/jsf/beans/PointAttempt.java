@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 /**
  * Stores the time taken to process the request in ms, the attempt time in ms, and result of the attempt.
  */
-@Entity(name="attempts")
-@Table(name="attempts", schema = "public")
+@Entity(name="attempts1")
+@Table(name="attempts1", schema = "public")
 public class PointAttempt {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="AttemptsIdGenerator")

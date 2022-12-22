@@ -18,7 +18,7 @@ import java.util.List;
 @Named
 @Transactional
 public class AttemptsManager implements Serializable {
-    @PersistenceContext(unitName = "db")
+    @PersistenceContext(unitName = "db") //session для нашего EntityManagerFactory -SessionFactory EntityManager-Session
     private EntityManager em;
     private final List<PointAttempt> attempts;
 
@@ -28,7 +28,7 @@ public class AttemptsManager implements Serializable {
 
     @PostConstruct
     public void init() {
-        attempts.addAll(em.createQuery("SELECT a FROM attempts a", PointAttempt.class).getResultList());
+        attempts.addAll(em.createQuery("SELECT a FROM attempts1 a", PointAttempt.class).getResultList());
     }
 
     public List<PointAttempt> getAttempts() {

@@ -17,19 +17,27 @@
 
         .ui-analog-clock {
             text-align: center;
-            width: 200px;
+            width: 100%;
+        }
+        .parent {
+            position: relative;
+        }
+        .child {
+            position: absolute;
+            left: 50%;
+            top: 50%;
         }
     </style>
     <h:outputStylesheet library="css" name="style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
     <h:outputScript library="js" name="clock.js" target="body"/>
 </h:head>
-<h:body>
-    <header style="text-align: center;">
+<h:body class="parent" >
+    <header class="child" style="text-align: center;">
         <div style="text-align: center;">
-            <div class="card" style="text-align: center;">
+            <div class="card" style="width: 100% ;text-align: center;">
 
-                <p:card style="width: 25rem;text-align: center; margin-bottom: 2em">
+                <p:card style="width: 30%;text-align: center; margin-bottom: 2em">
                     <h5 style="text-align: center;">Lab 3</h5>
                     <f:facet name="title" style="text-align: center;">Nasibullin Alan, P32312</f:facet>
 

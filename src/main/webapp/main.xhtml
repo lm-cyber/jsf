@@ -27,13 +27,13 @@
             .then((data) => {
                 points = data;
                 runGrapher().drawGraph();
-                tableCreate();
             });
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 </h:head>
 
-<h:body>
+<h:body style="width: 100vw; display: flex; flex-flow: column nowrap; justify-content: center; align-items: center">
+    <div>
     <header>
         <p:card style="width: 25rem;text-align: center; margin-bottom: 2em">
             <h5 style="text-align: center;">Lab 3</h5>
@@ -63,25 +63,28 @@
             <p:messages id="msgs"/>
 
             <h:panelGrid columns="3" cellpadding="19" styleClass="mb-3">
-                <p:selectBooleanCheckbox value="#{point.valueM2}" itemLabel="-2"/>
-                <p:selectBooleanCheckbox value="#{point.valueM15}" itemLabel="-1.5"/>
-                <p:selectBooleanCheckbox value="#{point.valueM1}" itemLabel="-1"/>
-                <p:selectBooleanCheckbox value="#{point.valueM05}" itemLabel="-0.5"/>
-                <p:selectBooleanCheckbox value="#{point.value0}" itemLabel="0"/>
-                <p:selectBooleanCheckbox value="#{point.value05}" itemLabel="0.5"/>
-                <p:selectBooleanCheckbox value="#{point.value1}" itemLabel="1"/>
-                <p:selectBooleanCheckbox value="#{point.value15}" itemLabel="1.5"/>
-                <p:selectBooleanCheckbox value="#{point.value2}" itemLabel="2"/>
-                <!--                <p:outputLabel for="x" value="x:"/>-->
+<!--                <p:selectBooleanCheckbox value="#{point.valueM2}" itemLabel="-2"/>-->
+<!--                <p:selectBooleanCheckbox value="#{point.valueM15}" itemLabel="-1.5"/>-->
+<!--                <p:selectBooleanCheckbox value="#{point.valueM1}" itemLabel="-1"/>-->
+<!--                <p:selectBooleanCheckbox value="#{point.valueM05}" itemLabel="-0.5"/>-->
+<!--                <p:selectBooleanCheckbox value="#{point.value0}" itemLabel="0"/>-->
+<!--                <p:selectBooleanCheckbox value="#{point.value05}" itemLabel="0.5"/>-->
+<!--                <p:selectBooleanCheckbox value="#{point.value1}" itemLabel="1"/>-->
+<!--                <p:selectBooleanCheckbox value="#{point.value15}" itemLabel="1.5"/>-->
+<!--                <p:selectBooleanCheckbox value="#{point.value2}" itemLabel="2"/>-->
+                                <p:outputLabel for="x" value="x:"/>
 
-                <!--                <p:inputText id="x" value="#{point.x}" required="true" label="x">-->
-                <!--                    <f:validateLength minimum="1" maximum="10"/>-->
-                <!--                </p:inputText>-->
-                <!--                <p:message for="x" display="x"/>-->
+                                <p:inputText id="x" value="#{point.x}" required="true" label="x">
+                                    <f:validateLength minimum="1" maximum="10"/>
+                                    <f:validateDoubleRange minimum="-2" maximum="2"/>
+
+                                </p:inputText>
+                                <p:message for="x" display="x"/>
 
 
                 <p:outputLabel for="y" value="y:"/>
-                <p:inputText id="y" value="#{point.y}" required="true" label="y">
+                <p:inputText id="y" value="
+" required="true" label="y">
                     <f:validateLength minimum="1" maximum="10"/>
                     <f:validateDoubleRange minimum="-5" maximum="3"/>
                     <f:validateRequired/>
@@ -103,49 +106,49 @@
             </h:panelGrid>
 
             <p:commandButton id="submit-button" styleClass="button row-fill" value="Submit" action="#{point.submit()}">
-                <f:ajax execute="@form" render="@form" onevent="afterAttempt"/>
+                <f:ajax execute="@form" render="@form results-table" onevent="afterAttempt"/>
             </p:commandButton>
         </h:form>
     </div>
-<!--    <div id="results" class="panel">-->
-<!--        <h1>Results</h1>-->
-<!--        <p:dataTable-->
-<!--                id="results-table"-->
-<!--                value="#{attemptsManager.attempts}"-->
-<!--                var="a"-->
-<!--                paginator="true"-->
-<!--                paginatorPosition="bottom"-->
-<!--                rows="10"-->
-<!--                tableStyle="table-layout: auto"-->
-<!--        >-->
-<!--            <p:column headerText="Attempt #">-->
-<!--                <h:outputText value="#{a.id}"/>-->
-<!--            </p:column>-->
-<!--            <p:column headerText="X">-->
-<!--                <h:outputText value="#{a.point.x}"/>-->
-<!--            </p:column>-->
-<!--            <p:column headerText="Y">-->
-<!--                <h:outputText value="#{a.point.y}"/>-->
-<!--            </p:column>-->
-<!--            <p:column headerText="R">-->
-<!--                <h:outputText value="#{a.point.r}"/>-->
-<!--            </p:column>-->
-<!--            <p:column headerText="Result">-->
-<!--                <span class="#{(a.success ? 'theme' : 'warning')}"><h:outputText-->
-<!--                        value="#{(a.success ? 'HIT' : 'MISS')}"/></span>-->
-<!--            </p:column>-->
-<!--            <p:column headerText="Attempt time">-->
-<!--                <span class="timestamp"><h:outputText value="#{a.attemptTime}"/></span>-->
-<!--            </p:column>-->
-<!--            <p:column headerText="Processing time">-->
-<!--                <h:outputText value="#{a.processTime} ms"/>-->
-<!--            </p:column>-->
-<!--        </p:dataTable>-->
-<!--    </div>-->
-    <div id="new_table">
-
+    <div id="results" class="panel">
+        <h1>Results</h1>
+        <p:dataTable
+                id="results-table"
+                value="#{attemptsManager.attempts}"
+                var="a"
+                paginator="true"
+                paginatorPosition="bottom"
+                rows="10"
+                tableStyle="table-layout: auto"
+        >
+            <p:column headerText="Attempt #">
+                <h:outputText value="#{a.id}"/>
+            </p:column>
+            <p:column headerText="X">
+                <h:outputText value="#{a.point.x}"/>
+            </p:column>
+            <p:column headerText="Y">
+                <h:outputText value="#{a.point.y}"/>
+            </p:column>
+            <p:column headerText="R">
+                <h:outputText value="#{a.point.r}"/>
+            </p:column>
+            <p:column headerText="Result">
+                <span class="#{(a.success ? 'theme' : 'warning')}"><h:outputText
+                        value="#{(a.success ? 'HIT' : 'MISS')}"/></span>
+            </p:column>
+            <p:column headerText="Attempt time">
+                <span class="timestamp"><h:outputText value="#{a.attemptTime}"/></span>
+            </p:column>
+            <p:column headerText="Processing time">
+                <h:outputText value="#{a.processTime} ms"/>
+            </p:column>
+        </p:dataTable>
     </div>
+<!--    <div id="new_table">-->
 
+<!--    </div>-->
+</div>
 </h:body>
 </html>
 

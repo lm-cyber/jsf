@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a680d46-e515-4764-add4-3de53adbdc9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/jsf_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/jsf_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsf/beans/AttemptsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsf/beans/AttemptsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsf/beans/PointAttempt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsf/beans/PointAttempt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/main.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/main.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/afterAttempt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/afterAttempt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/canvasXOY.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/canvasXOY.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +119,11 @@
       <workItem from="1671465261788" duration="5078000" />
       <workItem from="1671543248552" duration="11624000" />
       <workItem from="1671612987854" duration="3758000" />
-      <workItem from="1671618662808" duration="328000" />
+      <workItem from="1671618662808" duration="521000" />
+      <workItem from="1671619492392" duration="858000" />
+      <workItem from="1671651465449" duration="698000" />
+      <workItem from="1671686195681" duration="5868000" />
+      <workItem from="1671693777963" duration="288000" />
     </task>
     <servers />
   </component>

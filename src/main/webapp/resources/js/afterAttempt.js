@@ -5,7 +5,6 @@ function afterAttempt(data) {
             .then((data) => {
                 points = data;
                 runGrapher().drawGraph();
-                tableCreate();
             });
     }
 

@@ -140,19 +140,15 @@ canvas.addEventListener('click', (ev) => {
     // const x = Math.round((ev.offsetX / canvas.width - 0.5) * 3 * r * 100) / 100;
     // const y = Math.round((ev.offsetY / canvas.height - 0.5) * -3 * r * 100) / 100;
 
-    let x = (ev.offsetX / width) * (3 * r) - (3 / 2) * r;
-    let y = ((3 * r / 2 - (ev.offsetY / height * (3 * r))) * 10) / 10;
 
-    fetch('/jsf-1.0-SNAPSHOT/sendCanvas?' + new URLSearchParams({xpoint: x, ypoint: y, rpoint: r}))
-        .then((data) => data.json())
-        .then((data) => {
-            points = data;
-            runGrapher().drawGraph();
-            tableCreate();
-        });
-    ;
-    document.getElementById('submit_ajax_table').click();
 
+    const x = Math.round((ev.offsetX / canvas.width - 0.5) * 3 * r * 100) / 100;
+    const y = Math.round((ev.offsetY / canvas.height - 0.5) * -3 * r * 100) / 100;
+
+     document.getElementById('j_idt19:x').value = x.toString();
+    document.getElementById('j_idt19:y').value = y.toString();
+
+    document.getElementById("j_idt19:submit-button").click();
 
 });
 
